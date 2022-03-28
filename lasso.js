@@ -35,12 +35,6 @@ function draw() {
     ctx.lineWidth = 2;
     ctx.stroke();
     ctx.closePath();
-    ctx.beginPath();
-    ctx.moveTo(initX, initY);
-    ctx.lineTo(currX, currY);
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
-    ctx.closePath()
 }
 
 function findxy(res, e) {
@@ -51,7 +45,7 @@ function findxy(res, e) {
         currY = e.clientY - canvas.offsetTop;
         initX = currX;
         initY = currY;
-        
+
         flag = true;
         dot_flag = true;
         if (dot_flag) {
@@ -64,8 +58,15 @@ function findxy(res, e) {
     }
     if (res == 'up' || res == "out") {
         flag = false;
-        ctx.clearRect(0, 0, w, h);
-        document.getElementById("canvasimg").style.display = "none";
+        ctx.beginPath()
+        ctx.moveTo(initX, initY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.closePath();
+        //ctx.clearRect(0, 0, w, h);
+        //document.getElementById("canvasimg").style.display = "none";
     }
     if (res == 'move') {
         if (flag) {
