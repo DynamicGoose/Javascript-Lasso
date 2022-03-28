@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="lasso.css">
         <title>Lasso</title>
     </head>
-    <body>
-        <div class="grid-container">
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-            <div>1</div>
-        </div>
+    <body onload="init()">
+        <canvas id="can" width="1000" height="1000" style="position: absolute; top: 10%; border: 2px solid;"></canvas>
+        <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
     </body>
+    <script src="lasso.js"></script>
 </html>
