@@ -7,6 +7,9 @@ prevY = 0,
 currY = 0,
 dot_flag = false;
 
+var posX = [];
+var posY = [];
+
 function init() {
     canvas = document.getElementById('can');
     ctx = canvas.getContext("2d");
@@ -46,11 +49,14 @@ function findxy(res, e) {
         initX = currX;
         initY = currY;
 
+        posX.length = 0;
+        posY.length = 0;
+
         flag = true;
         dot_flag = true;
         if (dot_flag) {
             ctx.beginPath();
-            ctx.fillStyle = x;
+            ctx.fillStyle = "black";
             ctx.fillRect(currX, currY, 2, 2);
             ctx.closePath();
             dot_flag = false;
@@ -65,8 +71,8 @@ function findxy(res, e) {
         ctx.lineWidth = 2;
         ctx.stroke();
         ctx.closePath();
-        //ctx.clearRect(0, 0, w, h);
-        //document.getElementById("canvasimg").style.display = "none";
+        ctx.clearRect(0, 0, w, h);
+        console.log(posX.length, posY.length)
     }
     if (res == 'move') {
         if (flag) {
@@ -74,6 +80,8 @@ function findxy(res, e) {
             prevY = currY;
             currX = e.clientX - canvas.offsetLeft;
             currY = e.clientY - canvas.offsetTop;
+            posX.push(currX);
+            posY.push(currY);
             draw();
         }
     }
