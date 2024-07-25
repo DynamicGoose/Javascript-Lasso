@@ -1,2 +1,2 @@
 # Javascript-Lasso
-Auswahllasso in JavaScript
+Lasso selection tool written in JS
